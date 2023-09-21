@@ -26,9 +26,9 @@ public class TipCalculator {
         System.out.println("---------------------------------------");
         System.out.println("Total bill before tip: $" + roundedTotalCost); // learned to round from https://stackoverflow.com/questions/8825209/rounding-decimal-points
         System.out.println("Total percentage: " + tipNum + "%");
-        System.out.println("Total tip: " + totalTip);
-        System.out.println("Total bill with tip: ");
-        System.out.println("Per person cost before tip: ");
+        System.out.println("Total tip: $" + totalTip);
+        System.out.println("Total bill with tip: $" + (totalTip + totalCost));
+        System.out.println("Per person cost before tip: " + (totalCost/ groupNum));
         System.out.println("Tip per person: ");
         System.out.println("What's the tip percentage? (0-100): ");
     }
