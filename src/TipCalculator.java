@@ -20,16 +20,20 @@ public class TipCalculator {
             totalCost += cost;
         }
         totalCost += 1;
-        double roundedTotalCost = Math.round((totalCost*100.0)/100.0);
-        double totalTip = roundedTotalCost * tipNum * 0.01;
+        double roundedTotalCost = Math.round(totalCost*100.0)/100.0;
+        double totalTip = Math.round(roundedTotalCost * tipNum * 0.01 * 100.0) / 100.0;
+        double totalAfterTip = Math.round((totalTip + roundedTotalCost)*100.0) / 100.0;
+        double personBeforeTip = Math.round((roundedTotalCost / groupNum) * 100.0) / 100.0;
+        double personTip = Math.round(totalTip / groupNum * 100.0) / 100.0;
+        double totalPersonCost = Math.round((totalTip+ totalCost)/groupNum*100.0)/100.0;
 
         System.out.println("---------------------------------------");
         System.out.println("Total bill before tip: $" + roundedTotalCost); // learned to round from https://stackoverflow.com/questions/8825209/rounding-decimal-points
         System.out.println("Total percentage: " + tipNum + "%");
         System.out.println("Total tip: $" + totalTip);
-        System.out.println("Total bill with tip: $" + (totalTip + totalCost));
-        System.out.println("Per person cost before tip: " + (totalCost/ groupNum));
-        System.out.println("Tip per person: ");
-        System.out.println("What's the tip percentage? (0-100): ");
+        System.out.println("Total bill with tip: $" + totalAfterTip;
+        System.out.println("Per person cost before tip: " + personBeforeTip;
+        System.out.println("Tip per person: " + personTip;
+        System.out.println("Total cost per person: $" + totalPersonCost;
     }
 }
