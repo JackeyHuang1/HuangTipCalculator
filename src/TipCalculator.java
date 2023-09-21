@@ -20,7 +20,7 @@ public class TipCalculator {
             totalCost += cost;
         }
         totalCost += 1;
-        double roundedTotalCost = Math.round(totalCost*100.0)/100.0);
+        double roundedTotalCost = Math.round((totalCost*100.0)/100.0);
         double totalTip = roundedTotalCost * tipNum * 0.01;
 
         System.out.println("---------------------------------------");
