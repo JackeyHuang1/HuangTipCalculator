@@ -15,7 +15,7 @@ public class TipCalculator {
         double totalCost = cost;
 
         while (cost != -1) {
-            System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end)");
+            System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end) ");
             cost = scan.nextDouble();
             totalCost += cost;
         }
@@ -31,9 +31,9 @@ public class TipCalculator {
         System.out.println("Total bill before tip: $" + roundedTotalCost); // learned to round from https://stackoverflow.com/questions/8825209/rounding-decimal-points
         System.out.println("Total percentage: " + tipNum + "%");
         System.out.println("Total tip: $" + totalTip);
-        System.out.println("Total bill with tip: $" + totalAfterTip;
-        System.out.println("Per person cost before tip: " + personBeforeTip;
-        System.out.println("Tip per person: " + personTip;
-        System.out.println("Total cost per person: $" + totalPersonCost;
+        System.out.println("Total bill with tip: $" + totalAfterTip);
+        System.out.println("Per person cost before tip: $" + personBeforeTip);
+        System.out.println("Tip per person: $" + personTip);
+        System.out.println("Total cost per person: $" + totalPersonCost);
     }
 }
