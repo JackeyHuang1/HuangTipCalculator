@@ -13,7 +13,7 @@ public class TipCalculator {
         int tipNum = scan.nextInt();
         double cost = 0;
         double totalCost = cost;
-        String[] itemList = new String[groupNum-1];
+        String[] itemList = new String[10000];
         int index = 0;
 
         while (cost != -1) {
@@ -28,16 +28,17 @@ public class TipCalculator {
                 index += 1;
             }
         }
+
         totalCost += 1;
-        double roundedTotalCost = Math.round(totalCost*100.0)/100.0;
-        double totalTip = Math.round(roundedTotalCost * tipNum * 0.01 * 100.0) / 100.0;
-        double totalAfterTip = Math.round((totalTip + roundedTotalCost)*100.0) / 100.0;
-        double personBeforeTip = Math.round((roundedTotalCost / groupNum) * 100.0) / 100.0;
-        double personTip = Math.round(totalTip / groupNum * 100.0) / 100.0;
-        double totalPersonCost = Math.round((totalTip+ totalCost)/groupNum*100.0)/100.0;
+        String roundedTotalCost = String.format("%.2f", totalCost);
+        String totalTip = String.format("%.2f", (totalCost * tipNum * 0.01));
+        String totalAfterTip = String.format("%.2f", ((totalCost * tipNum * 0.01) + totalCost));
+        String personBeforeTip = String.format("%.2f", (totalCost / groupNum));
+        String personTip = String.format("%.2f", ((totalCost * tipNum * 0.01)/ groupNum));
+        String totalPersonCost = String.format("%.2f", ((totalCost * tipNum * 0.01) + totalCost) / groupNum);
 
         System.out.println("---------------------------------------");
-        System.out.println("Total bill before tip: $" + roundedTotalCost); // learned to round from https://stackoverflow.com/questions/8825209/rounding-decimal-points
+        System.out.println("Total bill before tip: $" + roundedTotalCost);
         System.out.println("Total percentage: " + tipNum + "%");
         System.out.println("Total tip: $" + totalTip);
         System.out.println("Total bill with tip: $" + totalAfterTip);
@@ -46,8 +47,11 @@ public class TipCalculator {
         System.out.println("Total cost per person: $" + totalPersonCost);
         System.out.println("---------------------------------------");
         System.out.println("Items ordered: ");
+
         for (String orders : itemList) {
-            System.out.println(orders);
+            if (orders != null) {
+                System.out.println(orders);
+            }
         }
     }
 }
