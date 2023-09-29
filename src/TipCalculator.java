@@ -5,19 +5,28 @@ import java.util.Scanner;
 public class TipCalculator {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+
         System.out.println("Welcome to the tip calculator!");
         System.out.print("How many people are in your group: ");
         int groupNum = scan.nextInt();
         System.out.print("What's the tip percentage? (0-100): ");
         int tipNum = scan.nextInt();
-        System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end)");
-        double cost = scan.nextDouble();
+        double cost = 0;
         double totalCost = cost;
+        String[] itemList = new String[groupNum-1];
+        int index = 0;
 
         while (cost != -1) {
-            System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end) ");
+            System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end): ");
             cost = scan.nextDouble();
+            scan.nextLine();
             totalCost += cost;
+            if (cost != -1) {
+                System.out.print("Enter the item: ");
+                String itemName = scan.nextLine();
+                itemList[index] = itemName + ": $" + String.format("%.2f", cost);
+                index += 1;
+            }
         }
         totalCost += 1;
         double roundedTotalCost = Math.round(totalCost*100.0)/100.0;
@@ -35,5 +44,10 @@ public class TipCalculator {
         System.out.println("Per person cost before tip: $" + personBeforeTip);
         System.out.println("Tip per person: $" + personTip);
         System.out.println("Total cost per person: $" + totalPersonCost);
+        System.out.println("---------------------------------------");
+        System.out.println("Items ordered: ");
+        for (String orders : itemList) {
+            System.out.println(orders);
+        }
     }
 }
